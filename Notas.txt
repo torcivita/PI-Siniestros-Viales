@@ -1,0 +1,39 @@
+Data Analytics e Intelligence Temática: Siniestros Viales Evaluarán Tech Skills y Soft Kills
+
+Ver Valores atipicos y nulos
+
+ideas: 
+    Mapa que pueda ver los lugares de accidentes por día
+    densidad de accidentes por lugares
+    temporadas del año
+    Vehiculos
+
+KPIs
+
+ID
+homicidios_hechos = homicidios_hechos.rename('Calle': 'CALLE', 'Altura': 'ALTURA', 'Cruce': 'CRUCE', 'Dirección Normalizada': DIRECCION_NORMALIZADA, 'XY (CABA)': 'GEOCODIFICACION', 'pos x': 'LONGITUD', 'pos y': 'LATITUD')
+
+
+ #   Column                 Non-Null Count  Dtype         
+---  ------                 --------------  -----         
+ 0   ID                     696 non-null    object        
+ 1   N_VICTIMAS             696 non-null    int64         
+ 2   FECHA                  696 non-null    datetime64[ns]
+ 3   AAAA                   696 non-null    int64         
+ 4   MM                     696 non-null    int64         
+ 5   DD                     696 non-null    int64         
+ 6   HORA                   696 non-null    object        
+ 7   HH                     696 non-null    object        
+ 8   LUGAR_DEL_HECHO        696 non-null    object        
+ 9   TIPO_DE_CALLE          696 non-null    object        
+ 10  Calle                  695 non-null    object        
+ 11  Altura                 129 non-null    float64       
+ 12  Cruce                  525 non-null    object        
+ 13  Dirección Normalizada  688 non-null    object        
+ 14  COMUNA                 696 non-null    int64         
+ 15  XY (CABA)              696 non-null    object        
+ 16  pos x                  696 non-null    object        
+ 17  pos y                  696 non-null    object        
+ 18  PARTICIPANTES          696 non-null    object        
+ 19  VICTIMA                      
+ 20  ACUSADO 

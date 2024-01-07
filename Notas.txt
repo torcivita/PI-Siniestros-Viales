@@ -10,30 +10,54 @@ ideas:
 
 KPIs
 
-ID
-homicidios_hechos = homicidios_hechos.rename('Calle': 'CALLE', 'Altura': 'ALTURA', 'Cruce': 'CRUCE', 'Dirección Normalizada': DIRECCION_NORMALIZADA, 'XY (CABA)': 'GEOCODIFICACION', 'pos x': 'LONGITUD', 'pos y': 'LATITUD')
-
-
+Quiero mergear el dataframe 'homicidios_hechos' con el dataframe 'homicidios_victimas' a traves del ID 
+El dataframe 'homicidios_hechos' tiene las siguientes características:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 684 entries, 0 to 683
+Data columns (total 21 columns):
  #   Column                 Non-Null Count  Dtype         
 ---  ------                 --------------  -----         
- 0   ID                     696 non-null    object        
- 1   N_VICTIMAS             696 non-null    int64         
- 2   FECHA                  696 non-null    datetime64[ns]
- 3   AAAA                   696 non-null    int64         
- 4   MM                     696 non-null    int64         
- 5   DD                     696 non-null    int64         
- 6   HORA                   696 non-null    object        
- 7   HH                     696 non-null    object        
- 8   LUGAR_DEL_HECHO        696 non-null    object        
- 9   TIPO_DE_CALLE          696 non-null    object        
- 10  Calle                  695 non-null    object        
- 11  Altura                 129 non-null    float64       
- 12  Cruce                  525 non-null    object        
- 13  Dirección Normalizada  688 non-null    object        
- 14  COMUNA                 696 non-null    int64         
- 15  XY (CABA)              696 non-null    object        
- 16  pos x                  696 non-null    object        
- 17  pos y                  696 non-null    object        
- 18  PARTICIPANTES          696 non-null    object        
- 19  VICTIMA                      
- 20  ACUSADO 
+ 0   ID                     684 non-null    object        
+ 1   N_VICTIMAS             684 non-null    int64         
+ 2   FECHA                  684 non-null    datetime64[ns]
+ 3   AAAA                   684 non-null    int64         
+ 4   MM                     684 non-null    int64         
+ 5   DD                     684 non-null    int64         
+ 6   HORA                   684 non-null    object        
+ 7   HH                     684 non-null    object        
+ 8   LUGAR_DEL_HECHO        684 non-null    object        
+ 9   TIPO_DE_CALLE          684 non-null    object        
+ 10  CALLE                  684 non-null    object        
+ 11  ALTURA                 129 non-null    float64       
+ 12  CRUCE                  525 non-null    object        
+ 13  DIRECCION_NORMALIZADA  684 non-null    object        
+ 14  COMUNA                 684 non-null    category      
+ 15  GEOCODIFICACION        684 non-null    object        
+ 16  LONGITUD               684 non-null    float64       
+ 17  LATITUD                684 non-null    float64       
+ 18  PARTICIPANTES          684 non-null    object        
+ 19  VICTIMA                684 non-null    object        
+ 20  ACUSADO                684 non-null    object        
+dtypes: category(1), datetime64[ns](1), float64(3), int64(4), object(12)
+memory usage: 108.3+ KB
+
+El dataframe 'homicidios_victimas' tiene las siguientes características:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 717 entries, 0 to 716
+Data columns (total 10 columns):
+ #   Column               Non-Null Count  Dtype         
+---  ------               --------------  -----         
+ 0   ID_hecho             717 non-null    object        
+ 1   FECHA                717 non-null    datetime64[ns]
+ 2   AAAA                 717 non-null    int64         
+ 3   MM                   717 non-null    int64         
+ 4   DD                   717 non-null    int64         
+ 5   ROL                  717 non-null    object        
+ 6   VICTIMA              717 non-null    object        
+ 7   SEXO                 717 non-null    object        
+ 8   EDAD                 664 non-null    float64       
+ 9   FECHA_FALLECIMIENTO  649 non-null    datetime64[ns]
+dtypes: datetime64[ns](2), float64(1), int64(3), object(4)
+memory usage: 56.1+ KB
+
+homicidios_merge = pd.merge(homicidios_hechos, homicidios_victimas, left_on='ID', right_on='ID_hecho', how='inner')

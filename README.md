@@ -1,1 +1,4 @@
 En la carpeta Dataset se encuentran los archivos extraidos de la página del Gobierno de la Ciudad de Buenos Aires. Estos son los datos originales con los que vamos a trabajar. 
+
+Extrajimos los datos de (...la pagina de la ciudad??...), transformamos tipos de datos, unificamos los nombres de las variables, exploramos los valores que podian asumir las variables y los normalizamos, y eliminamos datos innecesarios, valores nulos y outliers (como por ejemplo los accidentes con coordenadas fuera de los límites de la Ciudad de Buenso Aires). Una vez hechas todas estas transformaciones, mergeamos los dataframes correspondientes a hechos y victimas, creando así dos dataframes: uno con todos los datos de homicidios, y otro con todos los datos de lesiones. Por último, exportamos estos dos dataframes como CSV para realizar el Dashboard y posterior análsis.
+
